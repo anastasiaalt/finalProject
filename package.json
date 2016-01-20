@@ -1,0 +1,26 @@
+{
+  "name": "finalProject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anastasiaalt/finalProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anastasiaalt/finalProject/issues"
+  },
+  "homepage": "https://github.com/anastasiaalt/finalProject#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "mongodb": "^2.1.4"
+  }
+}
