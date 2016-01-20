@@ -20,4 +20,4 @@ ERD:
 https://docs.google.com/presentation/d/1GhJwIzuLqFRd8Dz7GhygDJgFNDKzFTOm8hVxj6qRg3g/edit?usp=sharing
 
 Wireframes:
-Notebook / Photos
+https://docs.google.com/presentation/d/1IqqZlotJ61pJ3QvZPu2roFF69avMgC90Uz7u_pBDSJE/edit?usp=sharing
