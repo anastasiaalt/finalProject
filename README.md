@@ -17,6 +17,7 @@ Trello:
 https://trello.com/b/Xp1tpECo
 
 ERD:
-
+https://docs.google.com/presentation/d/1GhJwIzuLqFRd8Dz7GhygDJgFNDKzFTOm8hVxj6qRg3g/edit?usp=sharing
 
 Wireframes:
+Notebook / Photos
