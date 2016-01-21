@@ -11,10 +11,12 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/bower_components'));
 app.set('view engine', 'ejs')
 mongoose.connect('mongodb://localhost/test')
+// I added this here
 
 fs.readdirSync(__dirname + '/models').forEach(function(filename){
   if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
 });
+// I added this here
 
 // db
 var db = mongoose.connection;
@@ -22,6 +24,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   // we're connected!
 });
+// I added this here
 
 var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectId;
@@ -33,14 +36,6 @@ MongoClient.connect(mongoUrl, function(err, database) {
 });
 
 //Mongoose
-mongoose.model('problems', {content: String});
-
-// var problemSchema = mongoose.Schema({
-//     name: String
-// });
-// var Problem = mongoose.model('Problem', problemSchema);
-// var stress = new Problem({ content: 'Very anxious' });
-// console.log(stress.name); // 'Very anxious'
 
 
 
@@ -50,9 +45,9 @@ app.get('/', function(req, res){
   res.render('index');
 });
 
-app.get('/problems', function(req, res){
-  mongoose.model('problems').find(function(err, problems) {
-    res.send(problems);
+app.get('/posts', function(req, res){
+  mongoose.model('posts').find(function(err, posts) {
+    res.send(posts);
   });
 });
 
