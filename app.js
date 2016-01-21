@@ -1,57 +1,42 @@
 var express = require('express');
-var app = express();
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var fs = require('fs');
+var Post = require('./models/post');
+var User = require('./models/user');
 
-// Configuration
+
+var app = express();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + '/bower_components'));
-app.set('view engine', 'ejs')
-mongoose.connect('mongodb://localhost/test')
-// I added this here
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'bower_components')));
 
-fs.readdirSync(__dirname + '/models').forEach(function(filename){
-  if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
-});
-// I added this here
-
-// db
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  // we're connected!
-});
-// I added this here
-
-var MongoClient = require('mongodb').MongoClient;
-var ObjectId = require('mongodb').ObjectId;
-var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/sandbox';
-MongoClient.connect(mongoUrl, function(err, database) {
-  if (err) { throw err; }
-  db = database;
-  process.on('exit', db.close);
-});
-
-//Mongoose
-
-
-
-
-// Routes
 app.get('/', function(req, res){
-  res.render('index');
-});
-
-app.get('/posts', function(req, res){
-  mongoose.model('posts').find(function(err, posts) {
-    res.send(posts);
+  Post.find({}, function(err, posts){
+    res.render('index', {posts: posts});
   });
 });
 
+app.post('/posts', function(req, res){
+  var post = new Post(req.body.post);
+  post.save(function(err, result){
+    console.log(req.body);
+    res.redirect('/');
+  });
+});
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || '3000');
 
 console.log('Connected');
