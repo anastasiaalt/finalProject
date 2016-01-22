@@ -27,37 +27,24 @@
             <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
         </form>
     </div>
-    <!-- TODO this should only be here for logged in users -->
-    <a href="/posts/new">Add a post</a>
-  <div id="nav">
-    <ul>
-      <li>
-        <a href="/topics">
-          Dancing Girls
-        </a>
-      </li>
-      <li>
-        <a href="/write">
-          Write Post
-        </a>
-      </li>
-      <li>
-        <a href="/read">
-          Read
-        </a>
-      </li>
-      <li>
-        <a href="/favorites">
-          Favorites
-        </a>
-      </li>
-    </ul>
-  </div>
+
+  <nav class="ui menu">
+      <h3>Brand</h3>
+          <a class="item">Dancing Girls</a>
+          <a class="item">Write Post</a>
+          <a class="item">Read</a>
+          <a class="item">Favorites</a>
+  </nav>
+
+  <!-- TODO this should only be here for logged in users -->
+  <a href="/posts/new">Add a post</a>
+
 
   <ul>
   <% posts.forEach(function(post){ %>
     <li>
-      <%= post.content %>
+      Message: <%= post.content %>
+      Topic: <%= post.topic %>
     </li>
   <% }) %>
   </ul>
