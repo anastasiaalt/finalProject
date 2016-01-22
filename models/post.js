@@ -1,9 +1,8 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/sandbox');
-
+// TODO should this be associted with someone? or totes anonymous?
 var postSchema = mongoose.Schema({
     content: String,
-    channel: String
+    topic: String
 });
 
 module.exports = mongoose.model('Post', postSchema);
