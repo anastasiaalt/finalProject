@@ -16,7 +16,7 @@
     <a href="/auth/linkedin">Sign up with linkedin</a>
     <div class="container">
         <form class="form-signin" action="/login" method="post">
-            <h2 class="form-signin-heading text-center">Open, says me</h2>
+            <h2 class="form-signin-heading text-center">Sign In</h2>
 
             <label for="username" class="sr-only">Username</label>
             <input type="text" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
@@ -29,6 +29,31 @@
     </div>
     <!-- TODO this should only be here for logged in users -->
     <a href="/posts/new">Add a post</a>
+  <div id="nav">
+    <ul>
+      <li>
+        <a href="/topics">
+          Dancing Girls
+        </a>
+      </li>
+      <li>
+        <a href="/write">
+          Write Post
+        </a>
+      </li>
+      <li>
+        <a href="/read">
+          Read
+        </a>
+      </li>
+      <li>
+        <a href="/favorites">
+          Favorites
+        </a>
+      </li>
+    </ul>
+  </div>
+
   <ul>
   <% posts.forEach(function(post){ %>
     <li>
