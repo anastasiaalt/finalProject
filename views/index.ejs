@@ -13,14 +13,14 @@
 <body>
 
 
-  <h1 class= "first header">Welcome to Stress App</h1>
+  <h1 class= "first header center">Welcome to Stress App</h1>
 
   <!-- TODO fix this studpid thing -->
     <button class="ui linkedin button">
-    <i class="linkedin icon"></i>LinkedIn</button>
+    <i class="linkedin icon "></i>LinkedIn</button>
     <a href="/auth/linkedin" class="second header"></a>
-    <p>-OR-</p>
-        <h2 class="second header">Sign In</h2>
+    <p class="center">-OR-</p>
+        <h2 class="second header center">Sign In</h2>
         <div class="ui form segment container">
             <div class="one field">
                 <form method="POST" action="/login">
@@ -34,41 +34,33 @@
                     <button class="ui blue submit button" type="submit">Login</button>
                 </form>
         </div>
+      
 
-  <nav class="ui blue menu container">
-      <h3 class= "header item">Brand</h3>
-          <a class="item"> <img src="/img/girls.png" alt="Topics"></a>
-          <a class="item"> <img src="/img/write.png" alt="Write"></a>
-          <a class="item"> <img src="/img/read.png" alt="Read"></a>
-          <a class="item"> <img src="/img/heart.png" alt="Favorites"></a>
-  </nav>
-
-  <div class="ui four column grid container">
       <div class="ui horizontal divider">
         <i class="inbox icon"></i>
       </div>
-      <div class="column">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae quisquam distinctio perspiciatis a culpa tempore minima suscipit dolor optio unde hic, eaque consequuntur dolorem praesentium officiis maiores repellendus et, ullam.</p>
-      </div>
-      <div class="column">2</div>
-      <div class="column">3</div>
-      <div class="column">4</div>
-  </div>
 
   <!-- TODO this should only be here for logged in users -->
-  <div>
-      <a href="/posts/new">Add a post</a>
-  </div>
 
-  <div>
-      <ul>
+  <nav class="ui pointing blue menu container">
+      <h3 class= "header item">Brand</h3>
+          <a href="/topics" class="item" id="topic"> <img src="/img/girls.png" alt="Topic"></a>
+          <a href="/posts/new" class="item" id="write"> <img src="/img/write.png" alt="Write"></a>
+          <a href="/" class="active item" id="read"> <img src="/img/read.png" alt="Read"></a>
+          <a href="/favorites" class="item" id="favorite"> <img src="/img/heart.png" alt="Favorite"></a>
+  </nav>
+
+
+
+  <div class="ui three column grid">
+      <div class="column">
       <% posts.forEach(function(post){ %>
-        <li>
-          Message: <%= post.content %>
-          Topic: <%= post.topic %>
-        </li>
+          <div class="ui segment">
+              <p>Message: <%= post.content %>
+              Topic: <%= post.topic %></p>
+          </div>
       <% }) %>
-      </ul>
+      </div>
   </div>
 
   </div>
