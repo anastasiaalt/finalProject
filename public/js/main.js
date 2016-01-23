@@ -1,5 +1,5 @@
-console.log('I am main.js and I am linked. Hear me roar.');
+console.log('Connected to main.js');
 
 $('select.dropdown')
-  .dropdown().val()
+  .dropdown()
 ;
