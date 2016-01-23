@@ -5,16 +5,22 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var Post = require('./models/post');
-var User = require('./models/user');
-var session = require('express-session');
-var bcrypt = require('bcrypt');
 var mongoose = require('mongoose');
-var passport = require('passport');
-var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 mongoose.connect('mongodb://localhost/sandbox');
 
 var app = express();
+
+var Post = require('./models/post');
+var User = require('./models/user');
+
+var session = require('express-session');
+var bcrypt = require('bcrypt');
+var passport = require('passport');
+
+var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
+
+
+
 
 // To Do: Don't push these to github, move them to environment bash profile and access via process.env
 var clientId = '778jnepkcnh6i3';
