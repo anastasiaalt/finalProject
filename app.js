@@ -75,6 +75,16 @@ app.post('/posts', function(req, res){
   });
 });
 
+
+app.get('/posts/new', function(req, res){
+  res.render('form');
+});
+
+
+
+
+
+// LinkedIn
 app.get('/auth/linkedin', passport.authenticate('linkedin'));
 
 app.get('/auth/linkedin/callback', passport.authenticate('linkedin', {
@@ -82,8 +92,7 @@ app.get('/auth/linkedin/callback', passport.authenticate('linkedin', {
   failureRedirect: '/login'
 }));
 
-app.get('/posts/new', function(req, res){
-  res.render('form');
-})
+
+
 app.listen(process.env.PORT || '3000');
 console.log('Connected');

@@ -6,7 +6,8 @@ var userSchema = mongoose.Schema({
     username: String,
     industry: String,
     location: String,
-    linkedinID: String
+    linkedinID: String,
+    gender: String
 
 });
 

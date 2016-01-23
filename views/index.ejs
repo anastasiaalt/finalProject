@@ -7,7 +7,7 @@
   <script src="/angular/angular.js"></script>
   <link rel="stylesheet" type="text/css" href="/dist/semantic.min.css">
   <script src="/dist/semantic.min.js"></script>
-
+  <script src="/js/main.js"></script>
 
 </head>
 <body>
@@ -56,8 +56,8 @@
       <div class="column">
       <% posts.forEach(function(post){ %>
           <div class="ui segment">
-              <p>Message: <%= post.content %>
-              Topic: <%= post.topic %></p>
+              <p>Message: <%= post.content %></p>
+              <p>Topic: <%= post.topic %></p>
           </div>
       <% }) %>
       </div>

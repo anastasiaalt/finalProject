@@ -1,40 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Stress App</title>
-  <script src="/jquery/dist/jquery.js"></script>
-  <script src="/angular/angular.js"></script>
-  <link rel="stylesheet" type="text/css" href="/dist/semantic.min.css">
-  <script src="/dist/semantic.min.js"></script>
-
-
+    <meta charset="utf-8">
+    <title>Stress App</title>
+    <script src="/jquery/dist/jquery.js"></script>
+    <script src="/angular/angular.js"></script>
+    <link rel="stylesheet" type="text/css" href="/dist/semantic.min.css">
+    <script src="/dist/semantic.min.js"></script>
+    <script src="/js/main.js"></script>
 </head>
 
-  <h2 class="">What's on your mind?</h2>
+    <h2 class="">What's on your mind?</h2>
 
-  <nav class="ui pointing blue menu container">
-      <h3 class= "header item">Brand</h3>
-          <a href="/topics" class="item" id="topic"> <img src="/img/girls.png" alt="Topic"></a>
-          <a href="/posts/new" class="active item" id="write"> <img src="/img/write.png" alt="Write"></a>
-          <a href="/" class="item" id="read"> <img src="/img/read.png" alt="Read"></a>
-          <a href="/favorites" class="item" id="favorite"> <img src="/img/heart.png" alt="Favorite"></a>
-  </nav>
+    <nav class="ui pointing blue menu container">
+        <h3 class= "header item">Brand</h3>
+            <a href="/topics" class="item" id="topic"> <img src="/img/girls.png" alt="Topic"></a>
+            <a href="/posts/new" class="active item" id="write"> <img src="/img/write.png" alt="Write"></a>
+            <a href="/" class="item" id="read"> <img src="/img/read.png" alt="Read"></a>
+            <a href="/favorites" class="item" id="favorite"> <img src="/img/heart.png" alt="Favorite"></a>
+    </nav>
 
 <body>
     <div class="ui form segment container">
-    <div class="one field">
-        <form method="POST" action="/posts">
-            <label for="post-content">Content</label>
-            <input type="text" name="post[content]" id="post-content">
-    </div>
-    <div class="one field">
-            <label for="post-topic">Topic</label>
-            <input type="text" name="post[topic]" id="post-topic">
-    </div>
-        <input class= "ui blue submit button" type="submit" value="Create">
-        </form>
+      <form method="POST" action="/posts">
+          <div class="one field">
+              <label for="post-content">Content</label>
+              <input type="text" name="post[content]" id="post-content">
+          </div>
 
-    </div>
+
+          <div class="one field">
+              <label for="post-topic">Topic</label>
+              <input type="hidden" name="post[topic]" id="post-topic">
+                  <select class="ui dropdown">
+                      <option value="Coding">Coding</option>
+                      <option value="Relationships">Relationships</option>
+                      <option value="Money">Money</option>
+                  </select>
+          </div>
+
+        <div>
+            <input class= "ui blue submit button" type="submit" value="Create">
+        </div>
+    </form>
+  </div>
+
+<!--     <div class="ui fluid selection dropdown">
+        <label for="post-topic"></label>
+        <input type="hidden" name="post[topic]">
+        <i class="dropdown icon"></i>
+        <div class="default text">Topic</div>
+        <div class="menu">
+            <div class="item" data-value="Coding">Coding</div>
+            <div class="item" data-value="Relationships">Relationships</div>
+            <div class="item" data-value="Money">Money</div>
+        </div>
+    </div> -->
+
+
+
+
+</div>
 </body>
 </html>
