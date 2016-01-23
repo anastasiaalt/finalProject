@@ -11,19 +11,19 @@
 
 </head>
 <body>
-    <div class="container">
-      <form method="POST" action="/posts">
-        <p>
-          <label for="post-content">Content</label>
-          <input type="text" name="post[content]" id="post-content">
-        </p>
-        <p>
-          <label for="post-topic">Topic</label>
-          <input type="text" name="post[topic]" id="post-topic">
-        </p>
-        <input type="submit" value="Create">
-        <div id="form_status"></div>
-      </form>
+    <div class="ui form segment container">
+    <div class="one field">
+        <form method="POST" action="/posts">
+            <label for="post-content">Content</label>
+            <input type="text" name="post[content]" id="post-content">
+    </div>
+    <div class="one field">
+            <label for="post-topic">Topic</label>
+            <input type="text" name="post[topic]" id="post-topic">
+    </div>
+        <input class= "ui blue submit button" type="submit" value="Create">
+        </form>
+
     </div>
 </body>
 </html>
