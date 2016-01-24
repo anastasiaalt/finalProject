@@ -125,7 +125,27 @@ app.post('/register', function(req, res){
   });
 });
 
+app.post('/login', function(req, res){
+  var username = 'X';
+  var password = 'Y';
 
+  User.find({}, function(err){
+    if (err) throw err;
+
+    User.findOne({ username: username }, function(err, user) {
+      if (err) throw err;
+  
+      user.comparePassword(password, function(err, isMatch) {
+          if (err) throw err;
+          console.log(password, isMatch);
+      });
+    });
+  });
+
+  res.redirect('/');
+  
+  console.log('no error');
+});
 
 
 
