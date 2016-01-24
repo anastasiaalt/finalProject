@@ -20,7 +20,33 @@ var passport = require('passport');
 
 var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 
+// Password Logic Test Section
+// http://devsmash.com/blog/password-authentication-with-mongoose-and-bcrypt
+var testUser = new User({
+    username: 'jmar777',
+    password: 'Password123'
+});
 
+testUser.save(function(err) {
+    if (err) throw err;
+
+    // fetch user and test password verification
+    User.findOne({ username: 'jmar777' }, function(err, user) {
+        if (err) throw err;
+
+        // test a matching password
+        user.comparePassword('Password123', function(err, isMatch) {
+            if (err) throw err;
+            console.log('Password123:', isMatch); // -> Password123: true
+        });
+
+        // test a failing password
+        user.comparePassword('123Password', function(err, isMatch) {
+            if (err) throw err;
+            console.log('123Password:', isMatch); // -> 123Password: false
+        });
+    });
+});
 
 
 // To Do: Don't push these to github, move them to environment bash profile and access via process.env
@@ -88,7 +114,14 @@ app.post('/posts', function(req, res){
 
 
 app.post('/login', function(req, res){
-    res.redirect('/login');
+  req.session.first_name = req.body.username;
+  authenticateUser(req.body.username, req.body.password, function(user){
+    if (user) {
+      req.session.first_name = user.first_name;
+      req.session.userId = user._id;
+    }
+    console.log("log in success");
+    res.redirect('/');
   });
 });
 
