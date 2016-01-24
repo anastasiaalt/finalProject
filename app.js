@@ -5,6 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/sandbox');
 
@@ -65,6 +66,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
+
+
+
+
 // Routes
 app.get('/', function(req, res){
   Post.find({}, function(err, posts){
@@ -82,9 +87,13 @@ app.post('/posts', function(req, res){
 });
 
 
-app.get('/posts/new', function(req, res){
-  res.render('form');
+app.post('/login', function(req, res){
+    res.redirect('/login');
+  });
 });
+
+
+
 
 
 
