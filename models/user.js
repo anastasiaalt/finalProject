@@ -11,7 +11,6 @@ var userSchema = mongoose.Schema({
     location: String,
     linkedinID: String,
     gender: String
-
 });
 
 userSchema.pre('save', function(next) {
