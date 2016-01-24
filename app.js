@@ -126,8 +126,7 @@ app.post('/register', function(req, res){
 });
 
 app.post('/login', function(req, res){
-  var username = 'X';
-  var password = 'Y';
+  var user = new User(req.body.user);
 
   User.find({}, function(err){
     if (err) throw err;
