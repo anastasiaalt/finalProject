@@ -15,6 +15,10 @@ body {
   background-color: rgb(253, 237, 186);
 }
 
+h2 {
+  color: rgb(173, 121, 176);
+}
+
 #signup {
   background: rgb(176, 161, 112);
 }

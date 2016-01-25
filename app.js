@@ -119,7 +119,7 @@ app.get('/login/linkedin', function(req, res){
 app.get('/auth/linkedin/callback', function(req, res){
   // I know the query parameters in the URL but don't know how to render them in the path
   console.log(req.query.code);
-  console.log('Hello World');
+  console.log('Above is Access Code');
   var params = {
     grant_type: 'authorization_code',
     code: req.query.code,
@@ -132,6 +132,14 @@ app.get('/auth/linkedin/callback', function(req, res){
   request.post(url, {form: params}, function(err, res, body){
     var accessToken = JSON.parse(body).access_token;
     // What should come back at the response is the access token
+    req.session.accessToken = accessToken;
+    console.log(req.session.accessToken);
+    console.log('Above is Access Token');
+
+    console.log(req.session);
+    console.log('Above is Req.Session');
+    console.log(session);
+    console.log('Above is Session');
     // store access token in session
     // use access token to make request to LinkedIn for basic profile information
     // res.redirect('/');
