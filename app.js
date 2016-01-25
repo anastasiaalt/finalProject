@@ -103,6 +103,10 @@ app.get('/', function(req, res){
   });
 });
 
+app.get('/posts/new', function(req, res){
+  res.render('form');
+})
+
 app.post('/posts', function(req, res){
  // TODO set the post's posted by to whoever is logged in's name
   var post = new Post(req.body.post);
