@@ -117,6 +117,7 @@ app.post('/posts', function(req, res){
 });
 
 app.get('/register', function(req, res){
+  console.log(req.body);
   res.render('register');
 });
 
