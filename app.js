@@ -136,13 +136,13 @@ app.post('/login', function(req, res){
   User.find({}, function(err){
     if (err) throw err;
 
-    User.findOne({ username: username }, function(err, user) {
+    User.findOne({ username: user.username }, function(err, user) {
       if (err) throw err;
   
-      user.comparePassword(password, function(err, isMatch) {
+      user.comparePassword(user.password, function(err, isMatch) {
           if (err) throw err;
-          console.log(password, isMatch);
       });
+      console.log(user.password);
     });
   });
 
