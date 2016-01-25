@@ -32,6 +32,8 @@
     "morgan": "^1.6.1",
     "passport": "^0.3.2",
     "passport-linkedin-oauth2": "^1.4.0",
+    "query-string": "^3.0.0",
+    "querystring": "^0.2.0",
     "rand-token": "^0.2.1",
     "semantic-ui": "^2.1.8",
     "serve-favicon": "^2.3.0"

@@ -3,31 +3,81 @@
 <head>
     <meta charset="utf-8">
     <title>Stress App</title>
-    <script src="/jquery/dist/jquery.js"></script>
-    <script src="/angular/angular.js"></script>
-    <link rel="stylesheet" type="text/css" href="/dist/semantic.min.css">
-    <script src="/dist/semantic.min.js"></script>
-    <script src="/js/main.js"></script>
+    <script 
+        src="/angular/angular.js">
+    </script>
+    <script
+        src="/dist/semantic.min.js">
+    </script>
+    <script
+        src="/jquery/dist/jquery.js">
+    </script>
+    <script
+        src="/js/main.js">
+    </script>
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="/dist/semantic.min.css">
 </head>
+
 <body>
-    <div class="container">
-        <form class="" action="/register" method="post">
-            <h2 class="">Register</h2>
-
-            <label for="first_name" class="">First Name</label>
-            <input type="text" id="first_name" name="user[first_name]" class="" placeholder="First Name" required autofocus>
-
-            <label for="last_name" class="">Last Name</label>
-            <input type="text" id="last_name" name="user[last_name]" class="" placeholder="Last Name" required autofocus>
-
-            <label for="username" class="">Username</label>
-            <input type="username" id="username" name="user[username]" class="" placeholder="Username" required>
-
-            <label for="password" class="">Password</label>
-            <input type="password" name="user[password]" id="password" class="" placeholder="Password" required>
-            
-            <input class= "ui blue submit button" type="submit" value="Register">
-          </form>
+    <div
+        class="container">
+        <form
+            action="/register"
+            method="post">
+        <h2>Register</h2>
+            <label
+                for="first_name">
+                First Name
+            </label>
+            <input
+                name="user[first_name]"
+                type="text"
+                id="first_name"
+                placeholder="First Name"
+                required autofocus>
+            <label
+                for="last_name">
+                Last Name
+            </label>
+            <input 
+                name="user[last_name]"
+                type="text"
+                id="last_name"
+                placeholder="Last Name"
+                required autofocus>
+            <label
+                for="username">
+                Username
+            </label>
+            <input
+                name="user[username]"
+                type="text"
+                id="username"
+                placeholder="Username"
+                required autofocus>
+            <label
+                for="password">
+                Password
+            </label>
+            <input
+                name="user[password]"
+                type="password"
+                id="password"
+                placeholder="Password"
+                required autofocus>
+            <input
+                class= "ui blue submit button" 
+                type="submit"
+                value="Register">
+        </form>
     </div>
 </body>
 </html>
+
+
+
+<!-- TO DO -->
+<!-- Rearrange order of the attributes to make cleaner -->

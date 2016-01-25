@@ -16,61 +16,14 @@ var User = require('./models/user');
 
 var session = require('express-session');
 var bcrypt = require('bcrypt');
-var passport = require('passport');
 
-var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
-
-// Password Logic Test Section
-// http://devsmash.com/blog/password-authentication-with-mongoose-and-bcrypt
-// var testUser = new User({
-//     username: 'jmar777',
-//     password: 'Password123'
-// });
-
-// testUser.save(function(err) {
-//     if (err) throw err;
-
-//     // fetch user and test password verification
-//     User.findOne({ username: 'jmar777' }, function(err, user) {
-//         if (err) throw err;
-
-//         // test a matching password
-//         user.comparePassword('Password123', function(err, isMatch) {
-//             if (err) throw err;
-//             console.log('Password123:', isMatch); // -> Password123: true
-//         });
-
-//         // test a failing password
-//         user.comparePassword('123Password', function(err, isMatch) {
-//             if (err) throw err;
-//             console.log('123Password:', isMatch); // -> 123Password: false
-//         });
-//     });
-// });
-
+var queryString = require('query-string');
 
 // To Do: Don't push these to github, move them to environment bash profile and access via process.env
-var clientId = '778jnepkcnh6i3';
-var clientSecret = 'IHh7ZOSu1DWLtGlH';
+var clientSecret = process.env.LinkedInClientSecret;
+var clientID = process.env.LinkedInClientId;
 var callbackUrl = 'http://127.0.0.1:3000/auth/linkedin/callback';
 
-passport.use(new LinkedInStrategy({
-    clientID: clientId,
-    clientSecret: clientSecret,
-    callbackURL: callbackUrl,
-    scope: ['r_basicprofile'],
-    state: true
-  },
-  function(accessToken, refreshToken, profile, done) {
-    console.log(accessToken, refreshToken, profile, done)
-    process.nextTick(function(){
-      return done(null, profile)
-    });
-    // User.findOrCreate({ linkedinId: profile.id }, function (err, user) {
-    //   return done(err, user);
-    // });
-  }
-));
 
 
 // Middleware
@@ -88,13 +41,6 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use(express.static(path.join(__dirname, 'semantic')));
-app.use(passport.initialize());
-app.use(passport.session());
-
-
-
-
-
 
 // Routes
 app.get('/', function(req, res){
@@ -133,36 +79,39 @@ app.post('/register', function(req, res){
 app.post('/login', function(req, res){
   var user = new User(req.body.user);
 
-  User.find({}, function(err){
-    if (err) throw err;
-
     User.findOne({ username: user.username }, function(err, user) {
       if (err) throw err;
   
       user.comparePassword(user.password, function(err, isMatch) {
           if (err) throw err;
+          res.redirect('/');
       });
       console.log(user.password);
     });
-  });
-
-  res.redirect('/');
   
   console.log('no error');
 });
 
 
+app.get('/login/linkedin', function(req, res){
+  var params = {
+    response_type: 'code',
+    client_id: clientID,
+    redirect_uri: callbackUrl,
+    state: 'Donna',
+    scope: 'r_basicprofile'
+  }
+  var url = 'https://www.linkedin.com/uas/oauth2/authorization';
+  paramsString = queryString.stringify(params);
+  url = url + '?'+ paramsString;
+  res.redirect(url);
+});
 
+app.get('/auth/linkedin/callback'), function(req, res){
+  // I know the query parameters in the URL but don't know how to render them in the path
 
-
-
-// LinkedIn
-app.get('/auth/linkedin', passport.authenticate('linkedin'));
-
-app.get('/auth/linkedin/callback', passport.authenticate('linkedin', {
-  successRedirect: '/',
-  failureRedirect: '/login'
-}));
+  console.log('Hello World');
+};
 
 
 

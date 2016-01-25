@@ -22,9 +22,8 @@
 </head>
 
 <body>
-    <h2
-        class="">
-        What's on your mind?
+    <h2>
+        Check back soon for favorite posts
     </h2>
 
     <nav 
@@ -66,54 +65,6 @@
                         alt="Favorite">
             </a>
     </nav>
-
-    <div 
-        class="ui form segment container">
-        <form 
-            method="POST"
-            action="/posts">
-            <div
-                class="one field">
-                <label 
-                    for="post-content">
-                    Content</label>
-                <input
-                    name="post[content]"
-                    type="text"
-                    id="post-content">
-            </div>
-
-            <div
-                class="one field">
-                <label 
-                    for="post-topic">
-                    Topic
-                </label>
-                <select
-                    name="post[topic]"
-                    class="ui dropdown">
-                        <option 
-                            value="Coding">
-                            Coding
-                        </option>
-                        <option
-                            value="Relationships">
-                            Relationships
-                        </option>
-                        <option
-                            value="Money">
-                            Money
-                        </option>
-                </select>
-            </div>
-            <div>
-                <input 
-                    class= "ui blue submit button"
-                    type="submit"
-                    value="Create">
-            </div>
-        </form>
-    </div>
 
 </body>
 </html>

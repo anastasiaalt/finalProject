@@ -1,85 +1,179 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Stress App</title>
-  <script src="/jquery/dist/jquery.js"></script>
-  <script src="/angular/angular.js"></script>
-  <link rel="stylesheet" type="text/css" href="/dist/semantic.min.css">
-  <script src="/dist/semantic.min.js"></script>
-  <script src="/js/main.js"></script>
-
+    <meta charset="utf-8">
+    <title>Stress App</title>
+    <script
+        src="/angular/angular.js">
+    </script>
+    <script
+        src="/dist/semantic.min.js">
+    </script>
+    <script
+        src="/jquery/dist/jquery.js">
+    </script>
+    <script
+        src="/js/main.js">
+    </script>
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="/dist/semantic.min.css">
 </head>
+
 <body>
-
-
-    <h1 class= "first header center">Welcome to Stress App</h1>
-
-  <!-- TODO fix this studpid thing -->
-    <div class="container">
-    <button class="ui linkedin button">
-    <i class="linkedin icon "></i>LinkedIn</button>
-    <a href="/auth/linkedin" class="second header"></a>
-    <p class="center">-OR-</p>
-    <a href="/register">Sign Up</a>
-        <h2 class="second header center">Sign In</h2>
-        <div class="ui form segment container">
-            <div class="one field">
-                <form method="POST" action="/login">
-                    <label for="username">Username</label>
-                    <input type="text" name="user[username]" placeholder="Username" requiredautofocus>
+    <h1
+        class= "first header center">
+        Welcome to Stress App
+    </h1>
+    <div
+        class="container">
+        <a
+            href="/login/linkedin"
+            class="ui linkedin button">
+                <i
+                    class="linkedin icon">
+                </i>
+            LinkedIn
+        </a>
+    <a
+        href="/auth/linkedin"
+        class="second header">
+    </a>
+    <p
+        class="center">
+        -OR-
+    </p>
+    <a
+        href="/register">
+        Sign Up
+    </a>
+    <h2
+        class="second header center">
+        Sign In
+    </h2>
+        <div
+            class="ui form segment container">
+            <form
+                method="POST" 
+                action="/login">
+            <div
+                class="one field">
+                    <label
+                        for="username">
+                        Username
+                    </label>
+                    <input
+                        type="text"
+                        name="user[username]"
+                        placeholder="Username" 
+                        required autofocus>
             </div>
-            <div class="one field">
-                    <label for="password" class="sr-only">Password</label>
-                    <input type="password" name="user[password]" id="password" class="form-control" placeholder="Password">
+            <div 
+                class="one field">
+                    <label 
+                        for="password">
+                        Password
+                    </label>
+                    <input
+                        type="password"
+                        name="user[password]" 
+                        placeholder="Password"
+                        required autofocus>
             </div>
             <div>
-                    <button class="ui blue submit button" type="submit">Login</button>
-                </form>
+                <button 
+                    class="ui blue submit button"
+                    type="submit">
+                    Login
+                </button>
             </div>
+        </form>
         </div>
     </div>
       
 
-      <div class="ui horizontal divider">
+    <div class="ui horizontal divider">
         <i class="inbox icon"></i>
-      </div>
+    </div>
 
   <!-- TODO this should only be here for logged in users -->
 
-  <nav class="ui pointing blue menu container">
-      <h3 class= "header item">Brand</h3>
-          <a href="/topics" class="item" id="topic"> <img src="/img/girls.png" alt="Topic"></a>
-          <a href="/posts/new" class="item" id="write"> <img src="/img/write.png" alt="Write"></a>
-          <a href="/" class="active item" id="read"> <img src="/img/read.png" alt="Read"></a>
-          <a href="/favorites" class="item" id="favorite"> <img src="/img/heart.png" alt="Favorite"></a>
-  </nav>
+    <nav 
+        class="ui pointing blue menu container">
+        <h3
+            class= "header item">
+            Brand
+        </h3>
+            <a
+                href="/topics"
+                class="item"
+                id="topic">
+                    <img
+                        src="/img/girls.png"
+                        alt="Topic">
+            </a>
+            <a
+                href="/posts/new"
+                class="item"
+                id="write">
+                    <img
+                        src="/img/write.png"
+                        alt="Write">
+            </a>
+            <a
+                href="/"
+                class="active item"
+                id="read">
+                    <img
+                        src="/img/read.png"
+                        alt="Read">
+            </a>
+            <a
+                href="/favorites"
+                class="item"
+                id="favorite">
+                    <img 
+                        src="/img/heart.png"
+                        alt="Favorite">
+            </a>
+    </nav>
 
 
 
-  <div class="ui relaxed grid container">
-      <div class="three column row">
-      <% posts.forEach(function(post){ %>
-          <div class="ui segment column">
-              <p>Message: <%= post.content %></p>
-              <p>Topic: <%= post.topic %></p>
-              <div class="ui labeled button" tabindex="0">
-                  <div class="ui button">
-                      <div class="ui tiny images">
-                          <img class="ui image" src="/img/praise.png" alt="Upvote"></a> Like
-                      </div>
-                  </div>
-                  <a class="ui basic label">
-                      2,048
-                  </a>
-              </div>
-          </div>
-      <% }) %>
-      </div>
-  </div>
+    <div
+        class="ui relaxed grid container">
+        <div 
+            class="three column row">
+            <% posts.forEach(function(post){ %>
+                <div
+                    class="ui segment column">
+                        <p>Message: <%= post.content %></p>
+                        <p>Topic: <%= post.topic %></p>
+                            <div
+                                class="ui labeled button"
+                                tabindex="0">
+                                    <div
+                                        class="ui button">
+                                            <div 
+                                                class="ui tiny images">
+                                                <img
+                                                    class="ui image" 
+                                                    src="/img/praise.png" 
+                                                    alt="Upvote">
+                                                Like
+                                            </div>
+                                    </div>
+                                <a 
+                                    class="ui basic label">
+                                    2,048
+                                </a>
+                            </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
 
-  </div>
-
-  <script src="/js/main.js"></script>
+<script src="/js/main.js"></script>
 </body>
 </html>
