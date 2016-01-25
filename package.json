@@ -35,6 +35,7 @@
     "query-string": "^3.0.0",
     "querystring": "^0.2.0",
     "rand-token": "^0.2.1",
+    "request": "^2.67.0",
     "semantic-ui": "^2.1.8",
     "serve-favicon": "^2.3.0"
   }

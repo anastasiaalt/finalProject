@@ -22,36 +22,46 @@
 </head>
 
 <body>
-    <h1
-        class= "first header center">
-        Welcome to Stress App
-    </h1>
-    <div
-        class="container">
-        <a
-            href="/login/linkedin"
-            class="ui linkedin button">
-                <i
-                    class="linkedin icon">
-                </i>
-            LinkedIn
-        </a>
-    <a
-        href="/auth/linkedin"
-        class="second header">
-    </a>
-    <p
-        class="center">
-        -OR-
-    </p>
-    <a
-        href="/register">
-        Sign Up
-    </a>
-    <h2
-        class="second header center">
-        Sign In
-    </h2>
+
+    <div class="ui one column grid container">
+        <div class="column">
+            <h1 class="welcome">
+                Welcome to Stress App
+            </h1>
+        </div>
+        <div class="column">
+            <a
+                href="/login/linkedin"
+                class="ui linkedin button">
+                    <i
+                        class="linkedin icon">
+                    </i>
+                LinkedIn
+            </a>
+            <a
+                href="/auth/linkedin">
+            </a>
+        </div>
+        <div class="column">
+            <p>
+                -OR-
+            </p>
+        </div>
+        <div class="column">
+            <button id="signup" class="ui button">
+            <a
+                href="/register">
+                Sign Up
+            </a>
+            </button>
+        </div>
+        <div class="column">
+            <h2>
+                Sign In
+            </h2>
+        </div>
+    </div>
+
         <div
             class="ui form segment container">
             <form
@@ -83,7 +93,7 @@
             </div>
             <div>
                 <button 
-                    class="ui blue submit button"
+                    class="ui submit button test"
                     type="submit">
                     Login
                 </button>

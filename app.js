@@ -23,6 +23,7 @@ var queryString = require('query-string');
 var clientSecret = process.env.LinkedInClientSecret;
 var clientID = process.env.LinkedInClientId;
 var callbackUrl = 'http://127.0.0.1:3000/auth/linkedin/callback';
+var request = require('request');
 
 
 
@@ -115,11 +116,27 @@ app.get('/login/linkedin', function(req, res){
   res.redirect(url);
 });
 
-app.get('/auth/linkedin/callback'), function(req, res){
+app.get('/auth/linkedin/callback', function(req, res){
   // I know the query parameters in the URL but don't know how to render them in the path
-
+  console.log(req.query.code);
   console.log('Hello World');
-};
+  var params = {
+    grant_type: 'authorization_code',
+    code: req.query.code,
+    redirect_uri: callbackUrl,
+    client_id: clientID,
+    client_secret: clientSecret
+  };
+  var url = 'https://www.linkedin.com/uas/oauth2/accessToken';
+  // request is allowing you to make a post from within this get
+  request.post(url, {form: params}, function(err, res, body){
+    var accessToken = JSON.parse(body).access_token;
+    // What should come back at the response is the access token
+    // store access token in session
+    // use access token to make request to LinkedIn for basic profile information
+    // res.redirect('/');
+  });
+});
 
 
 

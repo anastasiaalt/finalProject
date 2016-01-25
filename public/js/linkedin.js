@@ -41,6 +41,8 @@ var params = {
 // what URL do we have to request
 
 // The final step towards obtaining an Access Token is for your application to ask for one using the Authorization Code it just acquired.  This is done by making the following "x-www-form-urlencoded" HTTP POST request:
+// Need to close the express server and npm install --save request
+// This is where I am requesting the access token and exchanging the code I got in step 2 for the access token
 
 var url = 'https://www.linkedin.com/uas/oauth2/accessToken'
 
@@ -56,6 +58,10 @@ var params = {
   client_id
   client_secret
 }
+
+// This is done by making the following "x-www-form-urlencoded" HTTP POST request:
+// request.post(url, {form: params})
+// The form: params
 
 // // sample call
 // POST /uas/oauth2/accessToken HTTP/1.1
