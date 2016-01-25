@@ -92,6 +92,14 @@ app.post('/login', function(req, res){
   console.log('no error');
 });
 
+app.get('/favorites', function(req, res){
+  res.render('favorite');
+});
+
+app.get('/topics', function(req, res){
+  res.render('topic');
+})
+
 
 app.get('/login/linkedin', function(req, res){
   var params = {
