@@ -22,7 +22,6 @@
 </head>
 
 <body>
-
     <div class="ui one column grid container">
         <div class="column center">
             <h1 class="welcome center header">
@@ -34,7 +33,6 @@
             </h1>
         </div>
     </div>
-
 
     <nav 
         class="ui pointing blue menu container">
@@ -58,7 +56,7 @@
             </a>
             <a
                 href="/posts/new"
-                class="active item"
+                class="item"
                 id="write">
                     <img
                         src="/img/write.png"
@@ -66,7 +64,7 @@
             </a>
             <a
                 href="/read"
-                class="item"
+                class="active item"
                 id="read">
                     <img
                         src="/img/raised.png"
@@ -82,60 +80,40 @@
             </a>
     </nav>
 
+    <div class="ui horizontal divider">
+        <i class="inbox icon"></i>
+    </div>
+
     <div class="ui relaxed grid container">
         <h2
             class="ui center">
-            What's on your mind?
+            What are your peers and colleagues really thinking?
         </h2>
     </div>
 
-    <div 
-        class="ui form segment container">
-        <form 
-            method="POST"
-            action="/posts">
-            <div
-                class="one field">
-                <label 
-                    for="post-content">
-                    Content</label>
-                <input
-                    name="post[content]"
-                    type="text"
-                    id="post-content">
-            </div>
-
-            <div
-                class="one field">
-                <label 
-                    for="post-topic">
-                    Topic
-                </label>
-                <select
-                    name="post[topic]"
-                    class="ui dropdown">
-                        <option 
-                            value="Coding">
-                            Coding
-                        </option>
-                        <option
-                            value="Relationships">
-                            Relationships
-                        </option>
-                        <option
-                            value="Money">
-                            Money
-                        </option>
-                </select>
-            </div>
-            <div>
-                <input 
-                    class= "ui blue submit button"
-                    type="submit"
-                    value="Create">
-            </div>
-        </form>
+    <div class="ui horizontal divider">
+        <i class="inbox icon"></i>
     </div>
 
+    <div class="ui comments">
+    <% posts.forEach(function(post){ %>
+      <div class="comment">
+        <a class="avatar">
+          <img src="/img/stress.png">
+        </a>
+        <div class="content">
+          <a class="author">User</a>
+          <div class="text">
+            Message: <%= post.content %>
+          </div>
+          <div class="text">
+            Topic: <%= post.topic %>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+
+<script src="/js/main.js"></script>
 </body>
 </html>

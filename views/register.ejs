@@ -22,63 +22,62 @@
 </head>
 
 <body>
-    <div class="column center">
-        <h1 class="welcome">
-            Welcome to Stress App
-        </h1>
-    </div>
-    <div
-        class="container">
-        <form
-            action="/register"
-            method="post">
-        <h2>Register</h2>
-            <label
-                for="first_name">
-                First Name
-            </label>
+<div class="welcome ui segment">
+    <h1
+        class="welcome ui center aligned header">
+        Welcome to Stress App
+    </h1>
+</div>
+
+<div class="ui raised very padded text container segment">
+    <h2 
+        class="ui header">
+        Sign Up Below
+    </h2>
+    <form
+        action="/register"
+        method="post"
+        class="ui form">
+        <div
+            class="field">
+            <label>First Name</label>
             <input
+                type="text"
                 name="user[first_name]"
-                type="text"
-                id="first_name"
-                placeholder="First Name"
-                required autofocus>
-            <label
-                for="last_name">
-                Last Name
-            </label>
-            <input 
-                name="user[last_name]"
-                type="text"
-                id="last_name"
-                placeholder="Last Name"
-                required autofocus>
-            <label
-                for="username">
-                Username
-            </label>
+                placeholder="First Name">
+        </div>
+        <div
+            class="field">
+            <label>Last Name</label>
             <input
-                name="user[username]"
-                type="text"
-                id="username"
-                placeholder="Username"
-                required autofocus>
-            <label
-                for="password">
-                Password
-            </label>
+            type="text"
+            name="user[last_name]"
+            placeholder="Last Name">
+        </div>
+        <div
+            class="field">
+            <label>Username</label>
             <input
-                name="user[password]"
-                type="password"
-                id="password"
-                placeholder="Password"
-                required autofocus>
+            type="text"
+            name="user[username]"
+            placeholder="Username">
+        </div>
+        <div
+            class="field">
+            <label>Password</label>
             <input
-                class= "ui blue submit button" 
-                type="submit"
-                value="Register">
-        </form>
-    </div>
+            type="password"
+            name="user[password]"
+            placeholder="Password">
+        </div>
+        <button
+            class="ui button"
+            type="submit">
+            Submit
+        </button>
+    </form>
+</div>
+
 </body>
 </html>
 

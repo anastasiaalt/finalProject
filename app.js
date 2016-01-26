@@ -99,7 +99,13 @@ app.get('/favorites', function(req, res){
 
 app.get('/topics', function(req, res){
   res.render('topic');
-})
+});
+
+app.get('/read', function(req, res){
+  Post.find({}, function(err, posts){
+    res.render('read', {posts: posts});
+  });
+});
 
 
 app.get('/login/linkedin', function(req, res){
