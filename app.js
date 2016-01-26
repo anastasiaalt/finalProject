@@ -24,7 +24,7 @@ var clientSecret = process.env.LinkedInClientSecret;
 var clientID = process.env.LinkedInClientId;
 var callbackUrl = 'http://127.0.0.1:3000/auth/linkedin/callback';
 var request = require('request');
-
+var parse = require('xml-parser');
 
 
 // Middleware
@@ -151,22 +151,30 @@ app.get('/auth/linkedin/callback', function(req, res){
     // res.redirect('/');
 
     var options = {
-      connection: 'Keep-Alive',
-      authorization: 'Bearer'+accessToken,
+      url: 'https://api.linkedin.com/v1/people/~',
+      headers: {
+        Authorization:'Bearer '+accessToken      
+      }
     };
-      console.log('Bearer'+accessToken);
-      console.log(options);
+    console.log('Bearer'+accessToken);
+    console.log(options);
     var finalURL = 'https://api.linkedin.com/v1/people/~';
-    request.get(finalURL, {form: options}, function(err, res, body){
-      var profile = JSON.parse(body).authorization;
-      console.log(profile);
-      var user = new User;
-      var user = profile;
-      console.log(user);
-      user.save(function(err, result) {
-        console.log(req.body);
-      res.redirect('/');
-      });
+    request(options, function(err, res, body){
+      console.log('reached this point');
+      console.log(err);
+      console.log(res);
+      console.log(body);
+      var profileInfo = parse(body);
+      console.log(profileInfo);
+      // var profile = JSON.parse(body).authorization;
+      // console.log(profile);
+      // console.log('did we get here?');
+      // var user = new User;
+      // var user = profile;
+      // console.log(user);
+      // user.save(function(err, result) {
+      // console.log(req.body);
+      // res.redirect('/');
     });
   });
 });
