@@ -154,6 +154,7 @@ app.get('/auth/linkedin/callback', function(req, res){
     request.get(finalURL, {form: options}, function(err, res, body){
       var profile = JSON.parse(body).authorization;
       console.log(profile);
+      var user = new User;
       var user = profile;
       console.log(user);
       user.save(function(err, result) {
