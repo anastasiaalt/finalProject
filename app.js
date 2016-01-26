@@ -143,6 +143,24 @@ app.get('/auth/linkedin/callback', function(req, res){
     // store access token in session
     // use access token to make request to LinkedIn for basic profile information
     // res.redirect('/');
+
+    var options = {
+      connection: 'Keep-Alive',
+      authorization: 'Bearer'+accessToken,
+    };
+      console.log('Bearer'+accessToken);
+      console.log(options);
+    var finalURL = 'https://api.linkedin.com/v1/people/~';
+    request.get(finalURL, {form: options}, function(err, res, body){
+      var profile = JSON.parse(body).authorization;
+      console.log(profile);
+      var user = profile;
+      console.log(user);
+      user.save(function(err, result) {
+        console.log(req.body);
+      res.redirect('/');
+      });
+    });
   });
 });
 
