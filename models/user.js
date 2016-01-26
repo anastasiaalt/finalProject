@@ -5,12 +5,13 @@ var mongoose = require('mongoose'),
 var userSchema = mongoose.Schema({
     first_name: String,
     last_name: String,
-    username: { type: String, required: true, index: { unique: true } },
-    password: { type: String, required: true },
+    username: String,
+    password: String,
     industry: String,
     location: String,
     linkedinID: String,
-    gender: String
+    gender: String,
+    linkedIn: {}
 });
 
 userSchema.pre('save', function(next) {

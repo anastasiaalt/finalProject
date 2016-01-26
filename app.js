@@ -165,16 +165,15 @@ app.get('/auth/linkedin/callback', function(req, res){
       console.log(res);
       console.log(body);
       var profileInfo = parse(body);
+      // The data that you are getting back is xml, so need to install and use the xml parser
       console.log(profileInfo);
-      // var profile = JSON.parse(body).authorization;
-      // console.log(profile);
-      // console.log('did we get here?');
-      // var user = new User;
-      // var user = profile;
-      // console.log(user);
-      // user.save(function(err, result) {
-      // console.log(req.body);
-      // res.redirect('/');
+      console.log('Good til here');
+      console.log('Success');
+      // Now want to save the LinkedIn profile data into a new user under the particular key LinkedIn data
+      var user = new User({linkedIn: profileInfo})
+      user.save();
+      console.log(user.save());
+      console.log('success');
     });
   });
 });
