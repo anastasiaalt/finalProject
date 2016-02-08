@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Stress App</title>
+    <script
+        src="/angular/angular.js">
+    </script>
+    <script
+        src="/dist/semantic.min.js">
+    </script>
+    <script
+        src="/jquery/dist/jquery.js">
+    </script>
+    <script
+        src="/js/main.js">
+    </script>
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="/dist/semantic.min.css">
+</head>
+
+<body>
+
+    <div class="ui one column grid container">
+        <div class="column center">
+            <h1 class="welcome center header">
+                Welcome to Work Flow
+            <div
+                class="sub header">
+                A discussion forum for professional stress
+            </div>
+            </h1>
+        </div>
+    </div>
+
+
+    <nav 
+        class="ui pointing blue menu container">
+        <a
+            class= "header item">
+            <a
+                href="/"
+                class="item">
+                    <img
+                        src="/img/home.png"
+                        alt="options">
+            </a>
+        </a>
+            <a
+                href="/topics"
+                class="item"
+                id="topic">
+                    <img
+                        src="/img/girls.png"
+                        alt="Topic">
+            </a>
+            <a
+                href="/posts/new"
+                class="active item"
+                id="write">
+                    <img
+                        src="/img/write.png"
+                        alt="Write">
+            </a>
+            <a
+                href="/read"
+                class="item"
+                id="read">
+                    <img
+                        src="/img/raised.png"
+                        alt="Read">
+            </a>
+            <a
+                href="/favorites"
+                class="item"
+                id="favorite">
+                    <img 
+                        src="/img/heart.png"
+                        alt="Favorite">
+            </a>
+    </nav>
+
+    <div class="ui relaxed grid container">
+        <h2
+            class="ui center">
+            What's on your mind?
+        </h2>
+    </div>
+
+    <div 
+        class="ui form segment container">
+        <form 
+            method="POST"
+            action="/posts">
+            <div
+                class="one field">
+                <label 
+                    for="post-content">
+                    Content</label>
+                <input
+                    name="post[content]"
+                    type="text"
+                    id="post-content">
+            </div>
+
+            <div
+                class="one field">
+                <label 
+                    for="post-topic">
+                    Topic
+                </label>
+                <select
+                    name="post[topic]"
+                    class="ui dropdown">
+                        <option 
+                            value="Coding">
+                            Coding
+                        </option>
+                        <option
+                            value="Relationships">
+                            Relationships
+                        </option>
+                        <option
+                            value="Money">
+                            Money
+                        </option>
+                </select>
+            </div>
+            <div>
+                <input 
+                    class= "ui blue submit button"
+                    type="submit"
+                    value="Create">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

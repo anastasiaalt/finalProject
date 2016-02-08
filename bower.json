@@ -1,0 +1,24 @@
+{
+  "name": "finalProject",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Anastasia Alt <anastasia.alt@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/anastasiaalt/finalProject",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "handlebars": "~4.0.5",
+    "jquery": "~2.2.0"
+  }
+}
